@@ -1,0 +1,33 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<div class="holder">
+        @{
+            if(@ViewBag.dachi.fullness <= 20)
+            {
+                <span class="red">Fullness: @ViewBag.dachi.fullness</span>
+            }
+            if(@ViewBag.dachi.happiness <= 0)
+            {
+                <span class="red">Happiness: @ViewBag.dachi.happiness</span>
+            }
+            if(@ViewBag.dachi.fullness <= 0)
+            {
+                <span class="red">Meals: @ViewBag.dachi.meals</span>
+            }
+            if(@ViewBag.dachi.energy <= 0)
+            {
+                <span class="red">Energy: @ViewBag.dachi.energy</span>
+            }
+        }
+    <p>Fullness: @ViewBag.dachi.fullness  Happiness: @ViewBag.dachi.happiness  Meals: @ViewBag.dachi.meals  Energy: @ViewBag.dachi.energy</p>
+    <div class="message">
+
+    </div>
+    <div>
+        <a href="feed"><button>Feed</button></a>
+        <a href="play"><button>Play</button></a>
+        <a href="work"><button>Work</button></a>
+        <a href="sleep"><button>Sleep</button></a>
+    </div>
+</div>

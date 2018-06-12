@@ -1,0 +1,78 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model string
+<div class="holder">
+    @{
+        if(@ViewBag.dachi.fullness <= 10) {
+            <span class="red">Fullness: @ViewBag.dachi.fullness  |  </span>
+        }
+        else if(@ViewBag.dachi.fullness >= 100) {
+            <span class="green">Fullness: @ViewBag.dachi.fullness  |  </span>
+        }
+        else {
+            <span>Fullness: @ViewBag.dachi.fullness  |  </span>
+        }
+        
+        if(@ViewBag.dachi.happiness <= 10) {
+            <span class="red">Happiness: @ViewBag.dachi.happiness  |  </span>
+        }
+        else if(@ViewBag.dachi.happiness >= 100) {
+            <span class="green">Happiness: @ViewBag.dachi.happiness  |  </span>
+        }
+        else {
+            <span>Happiness: @ViewBag.dachi.happiness  |  </span>
+        }
+        
+        if(@ViewBag.dachi.meals == 0) {
+            <span class="red">Meals: @ViewBag.dachi.meals  |  </span>
+        }
+        else {
+            <span>Meals: @ViewBag.dachi.meals  |  </span>
+        }
+
+        if(@ViewBag.dachi.energy <= 10) {
+            <span class="red">Energy: @ViewBag.dachi.energy</span>
+        }
+        else if(@ViewBag.dachi.energy >= 10)
+        {
+            <span class="green">Energy: @ViewBag.dachi.energy</span>
+        }
+        else {
+            <span>Energy: @ViewBag.dachi.energy</span>
+        }
+    }
+    @{
+        if(@ViewBag.dachi.happiness <=0 || @ViewBag.dachi.fullness <=0)
+        {
+            <div class="message">
+                <h1 class="red">YOUR DOJOMACHI DIED!!</h1>
+            </div>
+            <div class="actions">
+                <a href="reset"><button>Try Again?</button></a>
+            </div>
+        }
+        else if(@ViewBag.dachi.happiness >=100 && @ViewBag.dachi.fullness >= 100 && @ViewBag.dachi.energy >= 100)
+        {
+            <div class="message">
+                <h1 class="green">YOUR DOJOMACHI MADE IT!!!!!</h1>
+            </div>
+            <div class="actions">
+                <a href="reset"><button>New Game</button></a>
+            </div>
+        }
+        else{
+            <div class="message">
+                <h4>@Model</h4>
+            </div>
+            <div class="actions">
+                @{}
+                <a href="feed"><button>Feed</button></a>
+                <a href="play"><button>Play</button></a>
+                <a href="work"><button>Work</button></a>
+                <a href="sleep"><button>Sleep</button></a>
+            </div>
+        }
+    }
+    
+</div>
